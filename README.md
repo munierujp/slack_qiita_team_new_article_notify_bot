@@ -1,0 +1,2 @@
+# slack_qiita_team_new_article_notify_bot
+Qiita:Teamの新着記事をSlackに投稿するBOT
