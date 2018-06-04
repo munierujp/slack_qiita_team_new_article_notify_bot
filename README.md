@@ -1,6 +1,6 @@
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-# slack_qiita_team_new_article_notify_bot
+# slack_qiita_team_notify_bot
 Qiita:Teamの新着記事をSlackに投稿するBOT
 
 ## プロパティ
