@@ -74,7 +74,7 @@ function fetchArticles_ () {
 * メッセージを作成します。
 * @param {Object} article - 記事
 * @param {Object} [article.group] - 記事のグループ
-* @param {string} [article.group.name - 記事のグループの名前
+* @param {string} [article.group.name] - 記事のグループの名前
 * @param {Object} [article.user] - 記事のユーザー
 * @param {string} [article.user.id] - 記事のユーザーのID
 * @param {string} article.title - 記事のタイトル
