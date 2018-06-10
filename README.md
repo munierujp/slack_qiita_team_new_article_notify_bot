@@ -16,7 +16,6 @@ Qiita:Teamの新着記事をSlackに投稿するBOT
 |`QIITA_TEAM_ID`|Qiita:TeamのチームID|`increments`|
 |`WEBHOOK_URL`|SlackのWebhook URL|`https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX`|
 
----
 ### MESSAGE_TEMPLATE_GROUP
 以下の変数を使用できます。
 
