@@ -1,3 +1,5 @@
+var moment = Moment.moment
+
 var properties = PropertiesService.getScriptProperties()
 var FETCH_COUNT = properties.getProperty('FETCH_COUNT')
 var MESSAGE_TEMPLATE_DATE_LANG = properties.getProperty('MESSAGE_TEMPLATE_DATE_LANG')
@@ -93,7 +95,7 @@ function createMessage_ (article) {
   var replacers = [
     [/{{title}}/g, article.title],
     [/{{url}}/g, article.url],
-    [/{{created_at}}/g, Moment.moment(article.created_at).format(MESSAGE_TEMPLATE_CRATED_AT_FORMAT)],
+    [/{{created_at}}/g, moment(article.created_at).format(MESSAGE_TEMPLATE_CRATED_AT_FORMAT)],
     [/{{user_id}}/g, article.user.id],
     [/{{user_name}}/g, article.user.name]
   ]
