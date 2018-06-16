@@ -48,5 +48,8 @@ Qiita:Teamの新着記事をSlackに投稿するBOT
 |`ja`|日本語|
 
 ## ライブラリ
-* Moment  
-`MHMchiX6c1bwSqGM1PZiW_PxhMjh3Sh48`
+以下のライブラリを使用しています。
+
+|ライブラリ|プロジェクトキー|
+|---|---|
+|Moment|`MHMchiX6c1bwSqGM1PZiW_PxhMjh3Sh48`|
