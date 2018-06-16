@@ -2,9 +2,8 @@ var moment = Moment.moment
 
 var properties = PropertiesService.getScriptProperties()
 var FETCH_COUNT = properties.getProperty('FETCH_COUNT')
+var MESSAGE_TEMPLATE = properties.getProperty('MESSAGE_TEMPLATE')
 var MESSAGE_TEMPLATE_DATE_LANG = properties.getProperty('MESSAGE_TEMPLATE_DATE_LANG')
-var MESSAGE_TEMPLATE_GROUP = properties.getProperty('MESSAGE_TEMPLATE_GROUP')
-var MESSAGE_TEMPLATE_NOT_GROUP = properties.getProperty('MESSAGE_TEMPLATE_NOT_GROUP')
 var MESSAGE_TEMPLATE_CRATED_AT_FORMAT = properties.getProperty('MESSAGE_TEMPLATE_CRATED_AT_FORMAT')
 var QIITA_API_TOKEN = properties.getProperty('QIITA_API_TOKEN')
 var QIITA_TEAM_ID = properties.getProperty('QIITA_TEAM_ID')
@@ -90,34 +89,23 @@ function fetchArticles_ () {
 * @return {string} メッセージ
 */
 function createMessage_ (article) {
+  var user = article.user
+  var data = {
+    title: article.title,
+    url: article.url,
+    user: {
+      id: user.id,
+      name: user.name
+    },
+    created_at: moment(article.created_at).format(MESSAGE_TEMPLATE_CRATED_AT_FORMAT)
+  }
   var group = article.group
-  var template = group ? MESSAGE_TEMPLATE_GROUP : MESSAGE_TEMPLATE_NOT_GROUP
-  var replacers = [
-    [/{{title}}/g, article.title],
-    [/{{url}}/g, article.url],
-    [/{{created_at}}/g, moment(article.created_at).format(MESSAGE_TEMPLATE_CRATED_AT_FORMAT)],
-    [/{{user_id}}/g, article.user.id],
-    [/{{user_name}}/g, article.user.name]
-  ]
   if (group) {
-    replacers.push([/{{group_name}}/g, group.name])
+    data.group = {
+      name: group.name
+    }
   }
-  return replaceText_(template, replacers)
-}
-
-/**
-* 文字列を複数の条件で置換します。
-* @param {string} source 文字列
-* @param {Object[][]} replacers 置換用配列
-* @return {string} 置換した文字列
-*/
-function replaceText_ (source, replacers) {
-  var replaced = source
-  for (var i in replacers) {
-    var replacer = replacers[i]
-    replaced = replaced.replace(replacer[0], replacer[1])
-  }
-  return replaced
+  return Mustache.render(MESSAGE_TEMPLATE, data)
 }
 
 /**
