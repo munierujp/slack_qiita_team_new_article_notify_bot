@@ -16,7 +16,7 @@ Qiita:Teamの新着記事をSlackに投稿するBOT
 |`WEBHOOK_URL`|SlackのWebhook URL|`https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX`|
 
 ### MESSAGE_TEMPLATE
-[MESSAGE_TEMPLATE.md]を参照してください。
+[MESSAGE_TEMPLATE.md](MESSAGE_TEMPLATE.md)を参照してください。
 
 ### MESSAGE_TEMPLATE_DATE_FORMAT
 [Moment.js](https://momentjs.com/docs/#/displaying/format/)のフォーマットパターンを使用できます。
