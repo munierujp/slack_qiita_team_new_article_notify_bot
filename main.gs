@@ -4,7 +4,7 @@ var properties = PropertiesService.getScriptProperties()
 var FETCH_COUNT = properties.getProperty('FETCH_COUNT')
 var MESSAGE_TEMPLATE = properties.getProperty('MESSAGE_TEMPLATE')
 var MESSAGE_TEMPLATE_DATE_LANG = properties.getProperty('MESSAGE_TEMPLATE_DATE_LANG')
-var MESSAGE_TEMPLATE_CRATED_AT_FORMAT = properties.getProperty('MESSAGE_TEMPLATE_CRATED_AT_FORMAT')
+var MESSAGE_TEMPLATE_DATE_FORMAT = properties.getProperty('MESSAGE_TEMPLATE_DATE_FORMAT')
 var QIITA_API_TOKEN = properties.getProperty('QIITA_API_TOKEN')
 var QIITA_TEAM_ID = properties.getProperty('QIITA_TEAM_ID')
 var WEBHOOK_URL = properties.getProperty('WEBHOOK_URL')
@@ -89,23 +89,7 @@ function fetchArticles_ () {
 * @return {string} メッセージ
 */
 function createMessage_ (article) {
-  var user = article.user
-  var data = {
-    title: article.title,
-    url: article.url,
-    user: {
-      id: user.id,
-      name: user.name
-    },
-    created_at: moment(article.created_at).format(MESSAGE_TEMPLATE_CRATED_AT_FORMAT)
-  }
-  var group = article.group
-  if (group) {
-    data.group = {
-      name: group.name
-    }
-  }
-  return Mustache.render(MESSAGE_TEMPLATE, data)
+  return Mustache.render(MESSAGE_TEMPLATE, article)
 }
 
 /**
