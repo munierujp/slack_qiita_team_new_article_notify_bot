@@ -1,4 +1,7 @@
-# [article](https://qiita.com/api/v2/docs#%E6%8A%95%E7%A8%BF)
+# MESSAGE_TEMPLATE
+以下のデータを用いて、[Mustache.js](https://github.com/janl/mustache.js/)の記法で書けます。
+
+## [article](https://qiita.com/api/v2/docs#%E6%8A%95%E7%A8%BF)
 |プロパティ|型|必須|説明|
 |---|---|---|---|
 |`rendered_body`|string|○|HTML形式の本文|
@@ -16,7 +19,7 @@
 |`user`|object|○|ユーザー|
 |`page_views_count`|number|×|閲覧数|
 
-## [group](https://qiita.com/api/v2/docs#%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97)
+### [group](https://qiita.com/api/v2/docs#%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%97)
 |プロパティ|型|必須|説明|
 |---|---|---|---|
 |`created_at`|string|○|作成日時|
@@ -26,7 +29,7 @@
 |`updated_at`|string|○|更新日時|
 |`url_name`|string|○|URL用の名前|
 
-## [user](https://qiita.com/api/v2/docs#%E3%83%A6%E3%83%BC%E3%82%B6)
+### [user](https://qiita.com/api/v2/docs#%E3%83%A6%E3%83%BC%E3%82%B6)
 |プロパティ|型|必須|説明|
 |---|---|---|---|
 |`description`|string|×|自己紹介文|
@@ -45,7 +48,7 @@
 |`twitter_screen_name `|string|×| Twitterのユーザー名|
 |`website_url `|string|×| ウェブサイトのURL|
 
-## [tag](https://qiita.com/api/v2/docs#%E3%82%BF%E3%82%AE%E3%83%B3%E3%82%B0)
+### [tag](https://qiita.com/api/v2/docs#%E3%82%BF%E3%82%AE%E3%83%B3%E3%82%B0)
 |プロパティ|型|必須|説明|
 |---|---|---|---|
 |`name`|string|○|名前|
