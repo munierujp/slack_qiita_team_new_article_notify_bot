@@ -80,7 +80,7 @@ function fetchArticles_ () {
 * @param {Object} article - 記事
 * @param {string} article.created_at - 記事の作成日持
 * @param {string} article.updated_at - 記事の更新日持
-* @param {string} [article.group] - 記事のグループ
+* @param {Object} [article.group] - 記事のグループ
 * @param {string} [article.group.created_at] - 記事のグループの作成日持
 * @param {string} [article.group.updated_at] - 記事のグループの更新日持
 * @return {string} メッセージ
