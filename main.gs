@@ -81,7 +81,20 @@ function fetchArticles_ () {
 * @return {string} メッセージ
 */
 function createMessage_ (article) {
+  article.created_at = formatDate_(article.created_at)
+  article.updated_at = formatDate_(article.updated_at)
+  article.group.created_at = formatDate_(article.group.created_at)
+  article.group.updated_at = formatDate_(article.group.updated_at)
   return Mustache.render(MESSAGE_TEMPLATE, article)
+}
+
+/**
+* タイムスタンプをフォーマットします。
+* @param {string} timestamp - タイムスタンプ
+* @return {string} フォーマットした文字列
+*/
+function formatDate_ (timestamp) {
+  return moment(timestamp).format(MESSAGE_TEMPLATE_DATE_FORMAT)
 }
 
 /**
