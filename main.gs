@@ -78,13 +78,22 @@ function fetchArticles_ () {
 /**
 * メッセージを作成します。
 * @param {Object} article - 記事
+* @param {string} article.created_at - 記事の作成日持
+* @param {string} article.updated_at - 記事の更新日持
+* @param {string} [article.group] - 記事のグループ
+* @param {string} [article.created_at] - 記事のグループの作成日持
+* @param {string} [article.updated_at] - 記事のグループの更新日持
 * @return {string} メッセージ
 */
 function createMessage_ (article) {
   article.created_at = formatDate_(article.created_at)
   article.updated_at = formatDate_(article.updated_at)
-  article.group.created_at = formatDate_(article.group.created_at)
-  article.group.updated_at = formatDate_(article.group.updated_at)
+  var group = article.group
+  if (group) {
+    group.created_at = formatDate_(group.created_at)
+    group.updated_at = formatDate_(group.updated_at)
+    article.group = group
+  }
   return Mustache.render(MESSAGE_TEMPLATE, article)
 }
 
