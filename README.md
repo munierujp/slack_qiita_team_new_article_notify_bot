@@ -8,7 +8,7 @@ Qiita:Teamの新着記事をSlackに投稿するBOT
 |---|---|---|
 |`FETCH_COUNT`|一度に取得する記事数（1〜100）|`100`|
 |`HISTORY`|最後に投稿した記事の履歴|-|
-|`MESSAGE_TEMPLATE`|メッセージのテンプレート|`{{#group}}[{{group.name}}] {{/group}}{{title}} by {{user.id}}\n{{{url}}}`|
+|`MESSAGE_TEMPLATE`|メッセージのテンプレート|`{{#group}}[{{group.name}}] {{/group}}{{{title}}} by {{user.id}}\n{{{url}}}`|
 |`MESSAGE_TEMPLATE_DATE_FORMAT`|メッセージのテンプレートの日付のフォーマット|`YYYY[/]M[/]D H[:]mm[:]ss`|
 |`MESSAGE_TEMPLATE_DATE_LANG`|メッセージのテンプレートの日付の言語|`ja`|
 |`QIITA_API_TOKEN`|Qiita:Teamのアクセストークン|`0123456789abcdef0123456789abcdef01234567`|
